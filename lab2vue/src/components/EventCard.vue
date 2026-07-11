@@ -3,6 +3,7 @@ import { ref } from 'vue'
 // defineProps<{
 //  msg: string
 // }>()
+/*
 const event = ref({
     id: 5928101,
     category: 'animal welfare',
@@ -14,6 +15,11 @@ const event = ref({
     petsAllowed: true,
     organizer: 'Kat Laydee'
 })
+*/
+import type { Event } from '@/types'
+defineProps<{
+    event: Event
+}>()
 </script>
 
 <template>
