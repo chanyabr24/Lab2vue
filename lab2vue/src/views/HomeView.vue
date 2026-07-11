@@ -2,6 +2,7 @@
 import EventCard from '@/components/EventCard.vue';
 import type { Event } from '@/types'
 import { ref } from 'vue'
+import EventCategory from '@/components/EventCategory.vue';
 const events = ref<Event[]>([
   {
     id: 5928101,
@@ -41,7 +42,10 @@ const events = ref<Event[]>([
 
 <template>
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <div v-for="event in events" :key="event.id" >
+    <EventCard :event="event" />
+    <EventCategory :event="event" />
+    </div>
   </div>
 </template>
 
