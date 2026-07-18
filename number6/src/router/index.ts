@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import UserDetailView from '@/views/UserDetailView.vue'
+import UserLayoutView from '@/views/user/LayoutView.vue'
+import UserProfileView from '@/views/user/ProfileView.vue'
+import UserPostsView from '@/views/user/PostsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,10 +14,27 @@ const router = createRouter({
     },
     {
       path: '/user/:id',
-      name: 'user-detail',
-      component: UserDetailView,
-      props: true
-}
+      name: 'user-layout',
+      component: UserLayoutView,
+      props: true,
+      children: [
+        {
+          path: '',
+          redirect: { name: 'user-profile' }
+        },
+        {
+          path: 'profile',
+          name: 'user-profile',
+          component: UserProfileView
+        },
+        {
+          path: 'posts',
+          name: 'user-posts',
+          component: UserPostsView,
+          props: true
+        }
+      ]
+    }
   ]
 })
 

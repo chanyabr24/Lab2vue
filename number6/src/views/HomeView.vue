@@ -25,7 +25,7 @@ onMounted(() => {
       v-for="user in users"
       :key="user.id"
       class="user-link"
-      :to="{ name: 'user-detail', params: { id: user.id } }"
+      :to="{ name: 'user-layout', params: { id: user.id } }"
     >
       <div class="user-card">
         <h2>{{ user.name }}</h2>
