@@ -13,6 +13,7 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+
     {
       path: '/user/:id',
       name: 'user-layout',
@@ -36,11 +37,19 @@ const router = createRouter({
         }
       ]
     },
+
     {
-          path: '/:catchAll(.*)',
-          name: 'not-found',
-          component: NotFoundView
-        }
+      path: '/404/:resource',
+      name: '404-resource-view',
+      component: NotFoundView,
+      props: true
+    },
+
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: NotFoundView
+    }
   ]
 })
 
