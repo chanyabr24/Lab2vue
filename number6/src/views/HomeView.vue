@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import type { User } from '@/types'
 import UserService from '@/services/UserService'
+import { RouterLink } from 'vue-router'
 
 const users = ref<User[]>([])
 
@@ -20,11 +21,18 @@ onMounted(() => {
   <h1>Users</h1>
 
   <div class="users">
-    <div class="user-card" v-for="user in users" :key="user.id">
-      <h2>{{ user.name }}</h2>
-      <p>{{ user.email }}</p>
-      <p>{{ user.company.name }}</p>
-    </div>
+    <RouterLink
+      v-for="user in users"
+      :key="user.id"
+      class="user-link"
+      :to="{ name: 'user-detail', params: { id: user.id } }"
+    >
+      <div class="user-card">
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.email }}</p>
+        <p>{{ user.company.name }}</p>
+      </div>
+    </RouterLink>
   </div>
 </template>
 

@@ -11,5 +11,9 @@ const apiClient = axios.create({
 export default {
   getUsers() {
     return apiClient.get('/users')
+  },
+
+  getUser(id: number) {
+    return apiClient.get('/users/' + id)
   }
 }
