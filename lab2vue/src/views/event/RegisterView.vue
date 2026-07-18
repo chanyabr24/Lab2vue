@@ -1,0 +1,15 @@
+@@ -0,0 +1,16 @@
+<script setup lang="ts">
+import { toRefs } from 'vue'
+import { type Event } from '@/types'
+
+
+const props = defineProps<{
+    event: Event
+}>() 
+// eslint-disable-next-line @typescript-eslint/no-unsend-vars
+const { event } = toRefs(props)
+</script>
+    <template>
+            <p>Register event here</p>
+    </template>
