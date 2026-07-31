@@ -5,6 +5,7 @@ import { ref, onMounted , computed, watchEffect} from 'vue'
 import EventCategory from '@/components/EventCategory.vue'
 import EventService from '@/services/EventService'
 
+
 const events = ref<Event[] | null>(null)
 
 const totalEvents = ref(0)
@@ -28,9 +29,9 @@ const hasNextPage = computed( () => {
 })
 
 onMounted( () => {
-watchEffect( () => {
   events.value = null
-EventService.getEvents(size.value, page.value)
+watchEffect( () => {
+EventService.getEvents(2, page.value)
   .then ((response) => {
     events.value = response.data
     totalEvents.value = response.headers['x-total-count']
@@ -38,6 +39,7 @@ EventService.getEvents(size.value, page.value)
   .catch((error) => {
     console.error('There was an error!', error)
   })
+  
 })
 })
 </script>
