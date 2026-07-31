@@ -6,6 +6,7 @@ import UserPostsView from '@/views/user/PostsView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import EditView from '@/views/user/EditView.vue'
 import nProgress from 'nprogress'
+import UserService from '@/services/UserService'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,23 @@ const router = createRouter({
       name: 'user-layout',
       component: UserLayoutView,
       props: true,
+      beforeEnter: (to) => {
+    const id = parseInt(to.params.id as string)
+
+    return UserService.getUser(id)
+      .then((response) => {
+         console.log(response.data)
+      })
+      .catch(() => {
+        return {
+          name: '404-resource-view',
+          params: {
+            resource: 'user'
+          }
+        }
+      })
+  },
+
       children: [
         {
           path: '',
@@ -41,7 +59,8 @@ const router = createRouter({
           path: 'edit',
           name: 'user-edit-view',
           component: EditView
-        }
+        },
+        
       ]
     },
 
