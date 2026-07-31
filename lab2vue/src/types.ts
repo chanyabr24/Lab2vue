@@ -13,3 +13,7 @@ export interface Event {
 export interface MessageState {
     message: String
 }
+
+export interface EventState {
+    event: Event | null
+}
