@@ -41,3 +41,24 @@ onMounted(() => {
     })
 })
 </script>
+<template>
+  <div v-if="user">
+    <h1>User: {{ user.name }}</h1>
+
+    <nav>
+      <RouterLink :to="{ name: 'user-profile', params: { id: user.id } }">
+        Profile
+      </RouterLink>
+
+      <RouterLink :to="{ name: 'user-posts', params: { id: user.id } }">
+        Posts
+      </RouterLink>
+
+      <RouterLink :to="{ name: 'user-edit-view', params: { id: user.id } }">
+        Edit
+      </RouterLink>
+    </nav>
+
+    <RouterView :user="user"/>
+  </div>
+</template>
