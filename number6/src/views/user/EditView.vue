@@ -1,16 +1,22 @@
 <script setup lang="ts">
-import { useRouter, useRoute } from 'vue-router'
+import { useMessageStore } from '@/stores/message'
+import { useRouter } from 'vue-router'
 
+const store = useMessageStore()
 const router = useRouter()
-const route = useRoute()
 
-const updateUser = () => {
-  router.push({
-    name: 'user-profile',
-    params: {
-      id: route.params.id
-    }
-  })
+ const updateUser = () => {
+  console.log('Update clicked')
+
+  store.updateMessage('Update is in progress')
+
+  setTimeout(() => {
+    store.resetMessage()
+
+    router.push({
+      name: 'home'
+    })
+  }, 5000)
 }
 </script>
 
