@@ -76,8 +76,21 @@ const router = createRouter({
       name: 'not-found',
       component: NotFoundView
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+  console.log(savedPosition)
+return new Promise((resolve) => {
+    setTimeout(() => {
+      if (savedPosition) {
+        resolve(savedPosition)
+      } else {
+        resolve({ top: 0 })
+      }
+    }, 300)
+  })
+}
 })
+
 router.beforeEach(() => {
   nProgress.start()
 })

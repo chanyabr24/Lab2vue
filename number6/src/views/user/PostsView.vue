@@ -33,5 +33,7 @@ onMounted(()=>{
       <p>{{ post.body }}</p>
     </div>
 
+       <br><br><br>
+
   </div>
 </template>
