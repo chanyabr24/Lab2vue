@@ -50,16 +50,17 @@ EventService.getEvents(3, page.value)
     <EventCard :event="event" />
     <EventCategory :event="event" />
     </div>
-  <div class="pagination">
+  <div class="flex w-[290px]">
   <RouterLink
-  id="page-prev"
+   class="flex-1 no-underline text-gray-700 text-left"
     :to="{ name: 'event-list-view', query: { page: page - 1, size: size } }"
     rel="prev"
     v-if="page != 1"
   >&#60;
     Prev Page
   </RouterLink>
-      <RouterLink id="page-next" :to="{ name: 'event-list-view', query: { page: page + 1}}" rel="next" v-if="hasNextPage"
+      <RouterLink class="flex-1 no-underline text-gray-700 text-right"
+       :to="{ name: 'event-list-view', query: { page: page + 1}}" rel="next" v-if="hasNextPage"
       >
         Next Page &#62;</RouterLink>
 
@@ -68,22 +69,4 @@ EventService.getEvents(3, page.value)
 </template>
 
 <style scoped>
-
-.pagination {
-  display: flex;
-  width: 290px;
-}
-.pagination a {
-  flex: 1;
-  text-decoration: none;
-  color: #2c3e50;
-}
-
-#page-prev {
-  text-align: left;
-}
-
-#page-next{
-  text-align: right;
-}
 </style>

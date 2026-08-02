@@ -7,19 +7,11 @@ defineProps<{
 </script>
 
 <template>
-  <div class="event-info">
-    <p>{{ event.category }}</p>
-    <p>{{ event.organizer }}</p>
+  <div class="text-right">
+    <p class="text-base my-1">{{ event.category }}</p>
+    <p class="text-base my-1">{{ event.organizer }}</p>
   </div>
 </template>
 
 <style scoped>
-.event-info {
-  text-align: right;
-}
-
-.event-info p {
-  font-size: 16px;
-  margin: 4px 0;
-}
 </style>

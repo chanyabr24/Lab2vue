@@ -23,7 +23,7 @@ onMounted(() => {
       v-for="student in students"
       :key="student.id"
     >
-      <div class="card">
+      <div class="border border-[#39495c] p-[20px] m-[10px]">
         <h2>
           {{ student.name }} {{ student.surname }}
         </h2>
@@ -34,9 +34,4 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.card {
-  border: 1px solid #39495c;
-  padding: 20px;
-  margin: 10px;
-}
 </style>

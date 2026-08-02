@@ -9,9 +9,9 @@ const { message } = storeToRefs(store)
 </script>
 
 <template>
-<div id="text-center font-sans text-gray-700 antialiased">
+<div class="text-center font-sans text-gray-700 antialiased">
   <header>
-    <div id="flashMessage" v-if="message">
+    <div id="flashMessage" class="animate-fade" v-if="message" >
       <h4>{{ message }}</h4>
     </div>
     <div class="wrapper">
@@ -41,35 +41,5 @@ const { message } = storeToRefs(store)
 
 <style >
 
-nav {
-  padding: 30px;
-}
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-h2 {
-  font-size: 20px;
-}
-@keyframes yellowFade {
-  from {
-    background-color: yellow;
-  }
-  to {
-    background-color: transparent;
-  }
-}
-#flashMessage {
-  animation: yellowFade 3s ease-in-out;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: yellow;
-  border-radius: 5px;
-}
 </style>
