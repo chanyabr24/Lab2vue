@@ -92,13 +92,19 @@ const router = createRouter({
       component: StudentListView
     }
   ],
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    }else {
-      return { top: 0}
-    }
-  }
+ scrollBehavior(to, from, savedPosition) {
+  console.log('savedPosition:', savedPosition)
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      if (savedPosition) {
+        resolve(savedPosition)
+      } else {
+        resolve({ top: 0 })
+      }
+    }, 500)
+  })
+}
 })
 
 router.beforeEach ( () => {
